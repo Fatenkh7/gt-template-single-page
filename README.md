@@ -1,0 +1,1 @@
+# gt-template-single-page
