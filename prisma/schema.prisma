@@ -1,0 +1,54 @@
+datasource db {
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model hero {
+    id               String  @id @default(auto()) @map("_id") @db.ObjectId
+    hero_title       String?
+    hero_description String?
+    hero_image       String?
+}
+
+model about {
+    id            String  @id @default(auto()) @map("_id") @db.ObjectId
+    about_content String?
+    about_image         String?
+}
+
+model services {
+    id                  String  @id @default(auto()) @map("_id") @db.ObjectId
+    service             String
+    service_description String?
+    image               String?
+}
+
+model team {
+    id          String  @id @default(auto()) @map("_id") @db.ObjectId
+    team_member String
+    role        String
+    image       String?
+}
+
+model contact {
+    id        String  @id @default(auto()) @map("_id") @db.ObjectId
+    facebook  String?
+    instagram String?
+    linkedin  String?
+    phone     String?
+    email     String?
+}
+
+model inbox {
+    id         String   @id @default(auto()) @map("_id") @db.ObjectId
+    first_name String
+    last_name  String
+    email_from String
+    email_to   String
+    message    String
+    date_time  DateTime @default(now())
+}
